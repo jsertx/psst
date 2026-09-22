@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "description": "Drop a file, pick a public key, get an encrypted .gpg next to the original.",
   "main": "src/main.js",
+  "author": {
+    "name": "jsertx",
+    "email": "sergiazow@gmail.com"
+  },
   "scripts": {
     "start": "electron .",
     "electron:build": "electron-builder",
@@ -22,6 +26,9 @@
   "build": {
     "appId": "io.estable.pssst",
     "productName": "Pssst",
+    "directories": {
+      "output": "release"
+    },
     "files": [
       "src/**/*",
       "package.json"
