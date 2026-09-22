@@ -27,7 +27,7 @@
       "package.json"
     ],
     "mac": {
-      "icon": "build/icon.icns",
+      "icon": "icons/icon_512x512@2x.png",
       "category": "public.app-category.utilities",
       "target": [
         "dmg",
@@ -46,6 +46,14 @@
           }
         ]
       }
+    },
+    "linux": {
+      "icon": "icons/icon_512x512@2x.png",
+      "category": "Utility",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   }
 }

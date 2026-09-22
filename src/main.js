@@ -40,7 +40,7 @@ function createWindow() {
     minHeight: 480,
     titleBarStyle: 'hiddenInset',
     backgroundColor: '#111317',
-    icon: path.join(__dirname, '..', 'icons', 'appl', 'icon_512x512@2x.png'),
+    icon: path.join(__dirname, '..', 'icons', 'icon_512x512@2x.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -220,7 +220,7 @@ app.on('will-quit', () => {
 app.whenReady().then(() => {
   try { sweepStaleTemp(); } catch {}
   if (process.platform === 'darwin' && !app.isPackaged) {
-    app.dock.setIcon(path.join(__dirname, '..', 'icons', 'appl', 'icon_512x512@2x.png'));
+    app.dock.setIcon(path.join(__dirname, '..', 'icons', 'icon_512x512@2x.png'));
   }
   createWindow();
   app.on('activate', () => !win && createWindow());
