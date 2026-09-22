@@ -6,7 +6,11 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --mac"
+    "electron:build": "electron-builder",
+    "electron:build:mac": "electron-builder --mac",
+    "electron:build:linux": "electron-builder --linux",
+    "electron:build:win": "electron-builder --win",
+    "electron:build:all": "electron-builder --mac --linux --win"
   },
   "dependencies": {
     "archiver": "^8.0.0"
