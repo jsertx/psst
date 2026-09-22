@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
+  <title>Pssst</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="titlebar"></div>
+
+  <!-- 1. Empty dropzone -->
+  <section id="view-drop" class="view active">
+    <div class="drop-target">
+      <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+      </svg>
+      <h1>Drop files to encrypt</h1>
+      <p>You'll pick a public key next. The encrypted <code>.gpg</code> is saved next to the original.</p>
+    </div>
+  </section>
+
+  <!-- 2. Pick a key -->
+  <section id="view-keys" class="view">
+    <div id="files-zone" class="files-zone">
+      <div class="zone-head">
+        <span id="files-count"></span>
+        <button id="btn-clear" class="link">Clear all</button>
+      </div>
+      <ul id="file-list" class="file-list"></ul>
+      <div class="zone-hint">Drop more files or folders here to add them</div>
+    </div>
+    <div id="mode" class="mode hidden">
+      <label class="opt"><input type="radio" name="mode" value="zip" checked />
+        <span>Zip into one file</span>
+        <span class="name-field"><input id="zip-name" type="text" value="Archive" spellcheck="false" /><em>.zip.gpg</em></span>
+      </label>
+      <label class="opt" id="opt-separate"><input type="radio" name="mode" value="separate" />
+        <span>Encrypt each file separately</span>
+      </label>
+    </div>
+    <input id="search" type="search" placeholder="Search name, email or key ID…" autocomplete="off" spellcheck="false" />
+    <ul id="key-list" class="keys"></ul>
+    <p id="keys-empty" class="muted hidden">No matching keys.</p>
+  </section>
+
+  <!-- 3. Progress (zip + encrypt) -->
+  <section id="view-progress" class="view">
+    <div class="progress-box">
+      <h2 id="prog-title">Preparing…</h2>
+      <div class="bar"><div id="prog-fill" class="fill"></div></div>
+      <div class="prog-meta"><span id="prog-bytes"></span><span id="prog-pct"></span></div>
+      <div id="prog-file" class="prog-file"></div>
+      <button id="btn-cancel" class="secondary">Cancel</button>
+    </div>
+  </section>
+
+  <!-- 4. Result -->
+  <section id="view-result" class="view">
+    <div id="result" class="result"></div>
+    <div class="result-actions">
+      <button id="btn-delete" class="danger hidden">Delete original source files?</button>
+      <div id="delete-status" class="delete-status hidden"></div>
+      <button id="btn-again" class="primary">Encrypt more files</button>
+    </div>
+  </section>
+
+  <div id="overlay" class="overlay"><span>Drop to encrypt new files</span></div>
+  <div id="error" class="error hidden"></div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

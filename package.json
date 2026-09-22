@@ -1,0 +1,47 @@
+{
+  "name": "pssst",
+  "productName": "Pssst",
+  "version": "0.1.0",
+  "description": "Drop a file, pick a public key, get an encrypted .gpg next to the original.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac"
+  },
+  "dependencies": {
+    "archiver": "^8.0.0"
+  },
+  "devDependencies": {
+    "electron": "^44.4.4",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "io.estable.pssst",
+    "productName": "Pssst",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "icon": "build/icon.icns",
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "extendInfo": {
+        "CFBundleDocumentTypes": [
+          {
+            "CFBundleTypeName": "Any file",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "public.data",
+              "public.folder"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
