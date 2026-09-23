@@ -24,7 +24,7 @@
     "electron-builder": "^26.15.3"
   },
   "build": {
-    "appId": "io.estable.pssst",
+    "appId": "io.jsertx.pssst",
     "productName": "Pssst",
     "directories": {
       "output": "release"
